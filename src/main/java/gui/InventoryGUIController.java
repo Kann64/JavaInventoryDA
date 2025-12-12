@@ -22,6 +22,7 @@ public class InventoryGUIController {
     @FXML private TextField priceField;
     @FXML private TextField quantityField;
     @FXML private Label statusLabel;
+    @FXML private TextField searchField;
 
     private Inventory inventory;
     private InventoryController controller;
@@ -43,6 +44,8 @@ public class InventoryGUIController {
         // Initial data load for demonstration
         loadInitialData();
         refreshTable();
+        searchField.textProperty().addListener((obs, oldVal, newVal) -> applySearchFilter(newVal));
+
     }
 
     private void loadInitialData() {
@@ -192,5 +195,23 @@ public class InventoryGUIController {
         statusLabel.setText("Status: " + message);
         statusLabel.setStyle(isSuccess ? "-fx-text-fill: green;" : "-fx-text-fill: red;");
     }
+    private void applySearchFilter(String keyword) {
+        if (keyword == null || keyword.isBlank()) {
+            productList.setAll(inventory.getProducts());
+            return;
+        }
+
+        String lower = keyword.toLowerCase();
+
+        productList.setAll(
+                inventory.getProducts().stream()
+                        .filter(p ->
+                                String.valueOf(p.getId()).contains(lower) ||
+                                        p.getName().toLowerCase().contains(lower)
+                        )
+                        .toList()
+        );
+    }
+
 }
 

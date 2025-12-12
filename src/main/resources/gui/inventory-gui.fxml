@@ -15,6 +15,10 @@
                 <Region HBox.hgrow="ALWAYS"/>
                 <Label fx:id="statusLabel" text="Status: Ready" style="-fx-text-fill: green;"/>
             </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search:"/>
+                <TextField fx:id="searchField" promptText="Search by ID or Name..." />
+            </HBox>
         </VBox>
     </top>
 
