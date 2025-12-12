@@ -4,9 +4,10 @@ import model.Inventory;
 import model.Product;
 import model.CsvManager;
 
+import java.util.Comparator;
+
 /**
  * Classe de démonstration pour le Milestone 2
- *
  * Démontre:
  * 1. Classes de gestion (Product, Inventory, CsvManager)
  * 2. Opérations de fichiers CSV
@@ -51,7 +52,8 @@ public class DemoMilestone2 {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
+            System.err.println("Interrupted while waiting for CSV import: " + e.getMessage());
         }
 
         controller.showInventory();
@@ -73,7 +75,7 @@ public class DemoMilestone2 {
 
         System.out.println("\n   - Produit le plus cher:");
         inventory.stream()
-                 .max((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()))
+                 .max(Comparator.comparingDouble(Product::getPrice))
                  .ifPresent(p -> System.out.println("     " + p));
 
         System.out.println();
