@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.InventoryController"
+      spacing="10"
+      style="-fx-padding: 15;">
+
+    <Label text="📊 Vue de l'Inventaire" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Statistiques -->
+    <HBox spacing="20" style="-fx-padding: 15; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Total Produits:" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="lblTotalProducts" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        </VBox>
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Valeur Totale:" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="lblTotalValue" text="0 €" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2ecc71;"/>
+        </VBox>
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Stock Faible:" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="lblLowStockCount" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Barre d'outils -->
+    <HBox spacing="10" style="-fx-padding: 10;">
+        <Button fx:id="btnRefresh" text="🔄 Rafraîchir"
+                style="-fx-font-size: 14px;"/>
+        <Button fx:id="btnEdit" text="✏️ Éditer"
+                style="-fx-font-size: 14px;"/>
+        <Button fx:id="btnDelete" text="🗑️ Supprimer"
+                style="-fx-font-size: 14px; -fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+        <Button fx:id="btnExport" text="📄 Exporter"
+                style="-fx-font-size: 14px; -fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnClose" text="Fermer"
+                style="-fx-font-size: 14px;"/>
+    </HBox>
+
+    <!-- Tableau -->
+    <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colName" text="Nom" prefWidth="200"/>
+            <TableColumn fx:id="colCategory" text="Catégorie" prefWidth="120"/>
+            <TableColumn fx:id="colPrice" text="Prix (€)" prefWidth="80"/>
+            <TableColumn fx:id="colQuantity" text="Quantité" prefWidth="80"/>
+            <TableColumn fx:id="colTotalValue" text="Valeur Totale" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Statut" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</VBox>
