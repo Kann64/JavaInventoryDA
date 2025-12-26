@@ -53,7 +53,10 @@ public class MainController {
             stage.show();
 
         } catch (IOException e) {
+<<<<<<< HEAD
             e.printStackTrace();
+=======
+>>>>>>> 5e220dd388ce872e6bdad360dc1c1278b08fc6ee
             AlertUtils.showError("Erreur", "Impossible d'ouvrir la fenêtre de gestion des produits.");
         }
     }
@@ -72,7 +75,10 @@ public class MainController {
             stage.show();
 
         } catch (IOException e) {
+<<<<<<< HEAD
             e.printStackTrace();
+=======
+>>>>>>> 5e220dd388ce872e6bdad360dc1c1278b08fc6ee
             AlertUtils.showError("Erreur", "Impossible d'ouvrir la fenêtre d'inventaire.");
         }
     }
