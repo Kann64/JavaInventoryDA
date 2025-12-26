@@ -53,6 +53,7 @@ public class MainController {
             stage.show();
 
         } catch (IOException e) {
+            e.printStackTrace();
             AlertUtils.showError("Erreur", "Impossible d'ouvrir la fenêtre de gestion des produits.");
         }
     }
@@ -71,6 +72,7 @@ public class MainController {
             stage.show();
 
         } catch (IOException e) {
+            e.printStackTrace();
             AlertUtils.showError("Erreur", "Impossible d'ouvrir la fenêtre d'inventaire.");
         }
     }
